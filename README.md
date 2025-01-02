@@ -4,31 +4,31 @@
 ## Overview
 This project automates the validation of search functionality on the Selenium Playground website's Table Search Demo page. The test ensures that searching for "New York" returns the expected results and validates the total number of entries on the page.
 
+# Selenium Search Functionality Testing
+
 ## Key Highlights
-- **Page Object Model (POM)**: The project follows the Page Object Model design pattern, creating distinct classes for different pages (e.g., SearchPage) that encapsulate page-specific actions and locators. This improves maintainability and scalability.
-- **Modular Test Setup**: WebDriver management and browser configuration are abstracted through a `WebDriverFactory` class and pytest fixtures. The setup supports multiple browsers (Chrome, Firefox, Edge, Safari).
-- **Search Functionality Test**: The test case checks the following:
-  1. Verifies the total number of entries on the page.
-  2. Validates that performing a search for "New York" returns the correct number of filtered results.
+- **Page Object Model (POM)**: Organized test code using POM for better maintainability and scalability.
+- **Cross-browser Support**: Supports multiple browsers (Chrome, Firefox, Edge, Safari) with automated WebDriver management.
+- **Search Functionality Validation**: Verifies the total number of entries and ensures correct filtering for the search term "New York."
 
 ## Features Implemented
-1. **WebDriver Factory**: Automatically manages the installation and initialization of WebDriver for multiple browsers using `webdriver-manager`.
-2. **Test Reporting with Pytest**: Uses `pytest` for test execution, providing detailed output in the console. This makes it easy to track test results and failures.
-3. **Reusable Utilities**: The project contains reusable utility classes like `WaitUtility` and `TypeUtility` for waiting and typing actions, which improves code readability and reduces redundancy.
-4. **Modular Page Object Model (POM)**: The `SearchPage` class defines locators and actions related to the search functionality, making the tests easier to maintain and extend.
+1. **WebDriver Factory**: Manages WebDriver initialization and installation for various browsers via `webdriver-manager`.
+2. **Modular Test Setup**: Utilizes pytest fixtures for reusable and scalable test setup.
+3. **Reusable Utilities**: Utility classes like `WaitUtility` and `TypeUtility` enhance code readability and reusability.
+4. **Test Execution with Pytest**: Provides detailed test results in the console, supporting easy debugging and tracking.
 
 ## Scope for Improvement
-1. **Test Data Management**: Currently, test data is hardcoded. It would be beneficial to externalize the test data (e.g., via CSV, JSON, or a database) to make the tests more flexible and easier to scale.
-2. **Cross-browser Testing**: While the project supports different browsers, it can be improved by running parallel tests across browsers using tools like Selenium Grid or a cloud service like Sauce Labs or LambdaTest.
-3. **Enhanced Reporting**: Currently, the project uses console logs for reporting. Incorporating a full-fledged reporting tool like **Allure** or **ExtentReports** would provide better visualization and insights for test results.
-4. **Error Handling**: Additional checks and better error handling in case of unexpected pop-ups, alerts, or page load failures could improve the reliability of tests.
-5. **API Tests**: Extending the testing scope to include API tests using `requests` or other tools would ensure complete end-to-end validation.
+1. **External Test Data**: Move hardcoded test data to external files (CSV, JSON) for flexibility and scalability.
+2. **Parallel Testing**: Implement parallel browser testing with tools like Selenium Grid or cloud services (e.g., LambdaTest).
+3. **Enhanced Reporting**: Integrate reporting tools like **Allure** or **ExtentReports** for better test insights.
+4. **Improved Error Handling**: Add checks for unexpected pop-ups and page load failures to enhance test reliability.
+5. **API Test Coverage**: Extend tests to include API validations for comprehensive end-to-end testing.
 
 ## Setup Instructions
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/kunal-geeks/selenium-search-test.git
 cd selenium-search-test
 ```
 
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ### 4. Run the Test
 To run the search functionality test:
 ```bash
-pytest tests/test_search_functionality.py -v
+pytest -s --browser=chrome
 ```
 
 ### Expected Output
